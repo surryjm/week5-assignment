@@ -1,0 +1,11 @@
+.loading-animation {
+  animation: pulseOpacity 1.5s ease-out;
+  animation-iteration-count: infinite;
+  text-transform: uppercase;
+}
+
+@keyframes pulseOpacity {
+  0% {opacity: 0.99;}
+  50% {opacity: 0.66;}
+  100% {opacity: 0.99;}
+}
