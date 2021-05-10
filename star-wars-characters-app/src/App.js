@@ -1,10 +1,10 @@
-import CharacterDetail from './CharacterDetail';
+import CharacterSearch from './Characters/CharacterSearch';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <CharacterDetail />
+      <CharacterSearch />
     </div>
   );
 }
