@@ -2,32 +2,26 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJedi } from '@fortawesome/free-solid-svg-icons';
 import './CharacterSearch.css';
-import CharacterList from './CharacterList';
-
+import FilmsList from '../FilmsList/FilmsList';
+import HomeWorld from '../HomeWorld/HomeWorld';
+import Starships from '../Starships/Starships';
+import Species from '../Species/Species';
+import { Link } from 'react-router-dom';
 
 class CharacterSearch extends Component {
   state = {
-    isLoading: false,
-    characterDetail: null,
+    isLoading: true,
+    characters: [],
     error: false
   }
 
-  searchForUser = (name) => {
-    this.setState({
-      isLoading: true,
-      characterDetail: null,
-      error: false
-    });
-
-    fetch(`https://swapi.dev/api/people/?search=${name}`)
+  componentDidMount() {
+    fetch(`https://swapi.dev/api/people/`)
       .then(response => response.json())
       .then(data => {
-        //console.log(data);
-        //console.log(data.results);
-        //console.log(data.results[0].name);
         this.setState ({
           isLoading: false,
-          characterDetail: data.results
+          characters: data.results
         });
       })
       .catch(() => {
@@ -36,20 +30,39 @@ class CharacterSearch extends Component {
           error: true
         });
       })
-  }
+  };
+
+  searchForUser = (name) => {
+    this.setState({
+      isLoading: true,
+      characters: [],
+      error: false
+    });
+
+    fetch(`https://swapi.dev/api/people/?search=${name}`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState ({
+          isLoading: false,
+          characters: data.results
+        });
+      })
+      .catch(() => {
+        this.setState({
+          isLoading: false,
+          error: true
+        });
+      })
+  };
 
   onSearch = (event) => {
     event.preventDefault();
     const searchValue = event.target[0].value;
-    //console.log(searchValue);
     this.searchForUser(searchValue);
   };
 
-
-
   render() {
-    const {isLoading, characterDetail, error} = this.state;
-    console.log(this.state.characterDetail);
+    const {isLoading, characters, error} = this.state;
     const loading = (
       <div className="loading-animation">
         <FontAwesomeIcon icon={faJedi} />
@@ -58,9 +71,7 @@ class CharacterSearch extends Component {
     );
     const errorMessage = (
       <p>Error. Please refresh and try again</p>
-    )
-    //let content;
-    
+    );
 
     return (
       <div>
@@ -72,14 +83,17 @@ class CharacterSearch extends Component {
         {isLoading && loading}
         {error && errorMessage}
 
-        {characterDetail && this.state.characterDetail.map((card, index) => {
+        {characters && this.state.characters.map((card, index) => {
           return (
             <div key={index}>
-              <h2>{card.name}</h2>
-              {/* <img
-                src={characterDetail.url}
-                alt={`Image of ${characterDetail.name}`}
-              /> */}
+              <Link to={`/character-details/${index + 1}/`}><h2>{card.name}</h2></Link>
+              {/*<div><h3>Birth year:</h3>{card.birth_year}</div>*/}
+              {/*<HomeWorld homeWorldUrl={card.homeworld}/>*/}
+              {/*<Species speciesUrl={card.species} />*/}
+              {/*<div><h3>Height:</h3>{card.height} centimeters</div>*/}
+              {/*<Height height={card.height} />*/}
+              {/*<Starships starshipsUrl={card.starships}/>*/}
+              {/*<FilmsList filmsUrl={card.films} />*/}
             </div>
           )
         })}
