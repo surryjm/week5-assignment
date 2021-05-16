@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/character-search" component={CharacterSearch}></Route>
           <div>
             <NavBar />
-            <Route path="/character-details/:id/" component={CharacterDetail}></Route>
+            <Route path="/character-details/:id" component={CharacterDetail}></Route>
           </div>
         </Switch>
       </Router>
