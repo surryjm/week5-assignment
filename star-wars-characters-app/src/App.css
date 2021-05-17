@@ -4,7 +4,27 @@
 
 body {
   background-color: #151515;
-  color: #aaa;
-  font-weight: 600;
-  font-family: 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #ddd;
+  font-weight: 400;
+  font-family: 'Barlow', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  letter-spacing: .05rem;
 }
+
+a {
+  text-decoration: none;
+  color: #999;
+  transition: color 100ms;
+} :hover {
+  color: #ddd;
+}
+
+h1, h3 {
+  text-transform: uppercase;
+}
+
+.navbar {
+  margin: 1rem 0 1rem 0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+

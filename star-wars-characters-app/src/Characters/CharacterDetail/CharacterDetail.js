@@ -49,7 +49,7 @@ class CharacterDetail extends Component {
     if (characterDetail) {
       content = (
         <div>
-          <h2>{characterDetail.name}</h2>
+          <h2 className="character-name">{characterDetail.name}</h2>
           {/* <img
             src={characterDetail.url}
             alt={`Image of ${characterDetail.name}`}
@@ -67,7 +67,6 @@ class CharacterDetail extends Component {
 
     return (
       <div>
-        <h1>Character Detail</h1>
         {isLoading && loading}
         {error && errorMessage}
         {content}

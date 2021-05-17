@@ -70,25 +70,31 @@ class CharacterSearch extends Component {
     );
 
     return (
-      <div>
-        <h1>Star Wars Characters</h1>
-        <form onSubmit={this.onSearch}>
-          <input type="text" />
-          <button type="submit">Search</button>
-        </form>
-        {isLoading && loading}
-        {error && errorMessage}
+      <div className="character-search">
+        <h1 className="main-title">Star Wars Characters</h1>
 
-        {characters && this.state.characters.map((card, index) => {
-          //let indexPlusOne = (index + 1);
-          const urlId = (card.url).split('/')[5];
+        <div className="character-search-container">
+          <form onSubmit={this.onSearch}>
+            <input className="input" type="text" placeholder="Search characters..."/>
+            <button className="input-button" type="submit">Search</button>
+          </form>
+          {isLoading && loading}
+          {error && errorMessage}
 
-          return (
-            <div key={index}>
-              <Link to={`/character-details/${urlId}`}><h2>{card.name}</h2></Link>
-            </div>
-          )
-        })}
+          <div className="search-results-container">
+          {characters && this.state.characters.map((card, index) => {
+            //let indexPlusOne = (index + 1);
+            const urlId = (card.url).split('/')[5];
+            <div></div>
+            return (
+              <div className="search-result" key={index}>
+                <Link to={`/character-details/${urlId}`}><h2>{card.name}</h2></Link>
+              </div>
+            )
+          })}
+          </div>
+        </div>
+
       </div>
     );
   }
