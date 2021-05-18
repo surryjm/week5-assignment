@@ -83,7 +83,6 @@ class CharacterSearch extends Component {
 
           <div className="search-results-container">
           {characters && this.state.characters.map((card, index) => {
-            //let indexPlusOne = (index + 1);
             const urlId = (card.url).split('/')[5];
             <div></div>
             return (

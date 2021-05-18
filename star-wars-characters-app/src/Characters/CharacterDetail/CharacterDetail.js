@@ -48,19 +48,20 @@ class CharacterDetail extends Component {
 
     if (characterDetail) {
       content = (
-        <div>
+        <div className="character-detail-container">
           <h2 className="character-name">{characterDetail.name}</h2>
-          {/* <img
-            src={characterDetail.url}
-            alt={`Image of ${characterDetail.name}`}
-          /> */}
-          <div><h3>Birth year:</h3>{characterDetail.birth_year}</div>
-          <HomeWorld homeWorldUrl={characterDetail.homeworld}/>
-          <Species speciesUrl={characterDetail.species} />
-          <div><h3>Height:</h3>{characterDetail.height} centimeters</div>
-          {/*<Height height={card.height} />*/}
-          <Starships starshipsUrl={characterDetail.starships}/>
-          <FilmsList filmsUrl={characterDetail.films} />
+          <div className="detail-container-1">
+            <div><h3>Birth year:</h3>{characterDetail.birth_year}</div>
+            <HomeWorld homeWorldUrl={characterDetail.homeworld}/>
+          </div>
+          <div className="detail-container-2">
+            <Species speciesUrl={characterDetail.species} />
+            <div><h3>Height:</h3>{characterDetail.height} centimeters</div>
+          </div>
+          <div className="detail-container-3">
+            <Starships starshipsUrl={characterDetail.starships}/>
+            <FilmsList filmsUrl={characterDetail.films} />
+          </div>
         </div>
       )
     }
