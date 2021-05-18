@@ -23,6 +23,10 @@ h1, h2, h3 {
   letter-spacing: .08rem;
 }
 
+p {
+  margin: 0;
+}
+
 .navbar {
   margin: 1rem 0 1rem 0;
   text-transform: uppercase;
@@ -32,5 +36,21 @@ h1, h2, h3 {
   padding: 1rem 0 1rem 0;
   font-size: 1.15rem;
   letter-spacing: 0.08rem;
+}
+
+.loading-animation {
+  animation: pulseOpacity 1.5s ease-out;
+  animation-iteration-count: infinite;
+  text-transform: uppercase;
+}
+
+.loading-animation p {
+  margin-top: .5rem;
+} 
+
+@keyframes pulseOpacity {
+  0% {opacity: 0.99;}
+  50% {opacity: 0.66;}
+  100% {opacity: 0.99;}
 }
 

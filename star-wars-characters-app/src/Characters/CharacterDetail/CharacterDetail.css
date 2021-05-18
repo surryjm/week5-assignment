@@ -1,19 +1,7 @@
-.loading-animation {
-  animation: pulseOpacity 1.5s ease-out;
-  animation-iteration-count: infinite;
-  text-transform: uppercase;
-}
-
-@keyframes pulseOpacity {
-  0% {opacity: 0.99;}
-  50% {opacity: 0.66;}
-  100% {opacity: 0.99;}
-}
-
 .character-detail-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px 100px 100px .75fr;
+  grid-template-rows: 100px 150px 150px .75fr;
   margin: 0 25% 0 25%;
 }
 
@@ -40,7 +28,7 @@
 .detail-container-3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
 }
 
 @media (max-width: 750px) {

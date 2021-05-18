@@ -68,6 +68,7 @@ class CharacterSearch extends Component {
     const errorMessage = (
       <p>Error. Please refresh and try again</p>
     );
+   
 
     return (
       <div className="character-search">
